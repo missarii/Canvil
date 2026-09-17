@@ -1,0 +1,110 @@
+{
+  "$comment": "Source ranking registry. Canvil assigns every retrieved source a type and a trust tier instead of trusting search-result order. Tier 1 always wins.",
+  "tiers": {
+    "project": {
+      "rank": 1,
+      "label": "Your project",
+      "description": "Project files, README, manifests, tests, configuration and git history. Highest authority: it describes what actually exists."
+    },
+    "official-docs": {
+      "rank": 2,
+      "label": "Official documentation",
+      "description": "First-party documentation for a technology declared in the documentation registry."
+    },
+    "official-repo": {
+      "rank": 3,
+      "label": "Primary source repository",
+      "description": "Official organisation repositories, official examples and official SDKs."
+    },
+    "standard": {
+      "rank": 4,
+      "label": "Standard / specification",
+      "description": "RFCs, ECMA/W3C/WHATWG specifications, OpenAPI, IETF documents."
+    },
+    "registry": {
+      "rank": 5,
+      "label": "Package registry",
+      "description": "npm, PyPI, Maven Central, crates.io, Docker Hub. Structured, machine-readable, authoritative for versions."
+    },
+    "security-authority": {
+      "rank": 6,
+      "label": "Security authority",
+      "description": "OWASP, CWE, NIST, vendor security advisories and CVE databases."
+    },
+    "community": {
+      "rank": 7,
+      "label": "Community",
+      "description": "Stack Overflow, GitHub issues/discussions, technical blogs. Good for troubleshooting, not for ground truth."
+    },
+    "general-web": {
+      "rank": 8,
+      "label": "General web",
+      "description": "Everything else. Used only when higher tiers cannot answer the question."
+    }
+  },
+  "domains": [
+    { "match": "react.dev", "type": "official-docs", "technology": "react" },
+    { "match": "nextjs.org", "type": "official-docs", "technology": "nextjs" },
+    { "match": "docs.nestjs.com", "type": "official-docs", "technology": "nestjs" },
+    { "match": "nodejs.org", "type": "official-docs", "technology": "node" },
+    { "match": "www.typescriptlang.org", "type": "official-docs", "technology": "typescript" },
+    { "match": "developer.mozilla.org", "type": "official-docs", "technology": "javascript" },
+    { "match": "vuejs.org", "type": "official-docs", "technology": "vue" },
+    { "match": "svelte.dev", "type": "official-docs", "technology": "svelte" },
+    { "match": "angular.dev", "type": "official-docs", "technology": "angular" },
+    { "match": "expressjs.com", "type": "official-docs", "technology": "express" },
+    { "match": "fastify.dev", "type": "official-docs", "technology": "fastify" },
+    { "match": "vite.dev", "type": "official-docs", "technology": "vite" },
+    { "match": "tailwindcss.com", "type": "official-docs", "technology": "tailwindcss" },
+    { "match": "zod.dev", "type": "official-docs", "technology": "zod" },
+    { "match": "prisma.io", "type": "official-docs", "technology": "prisma" },
+    { "match": "orm.drizzle.team", "type": "official-docs", "technology": "drizzle" },
+    { "match": "www.postgresql.org", "type": "official-docs", "technology": "postgresql" },
+    { "match": "redis.io", "type": "official-docs", "technology": "redis" },
+    { "match": "docs.docker.com", "type": "official-docs", "technology": "docker" },
+    { "match": "kubernetes.io", "type": "official-docs", "technology": "kubernetes" },
+    { "match": "docs.aws.amazon.com", "type": "official-docs", "technology": "aws" },
+    { "match": "vitest.dev", "type": "official-docs", "technology": "vitest" },
+    { "match": "jestjs.io", "type": "official-docs", "technology": "jest" },
+    { "match": "playwright.dev", "type": "official-docs", "technology": "playwright" },
+    { "match": "docs.python.org", "type": "official-docs", "technology": "python" },
+    { "match": "docs.djangoproject.com", "type": "official-docs", "technology": "django" },
+    { "match": "fastapi.tiangolo.com", "type": "official-docs", "technology": "fastapi" },
+    { "match": "flask.palletsprojects.com", "type": "official-docs", "technology": "flask" },
+    { "match": "go.dev", "type": "official-docs", "technology": "go" },
+    { "match": "doc.rust-lang.org", "type": "official-docs", "technology": "rust" },
+    { "match": "learn.microsoft.com", "type": "official-docs", "technology": "dotnet" },
+
+    { "match": "github.com", "type": "official-repo" },
+    { "match": "raw.githubusercontent.com", "type": "official-repo" },
+    { "match": "gitlab.com", "type": "official-repo" },
+
+    { "match": "datatracker.ietf.org", "type": "standard" },
+    { "match": "rfc-editor.org", "type": "standard" },
+    { "match": "tc39.es", "type": "standard" },
+    { "match": "w3.org", "type": "standard" },
+    { "match": "spec.whatwg.org", "type": "standard" },
+    { "match": "spec.openapis.org", "type": "standard" },
+
+    { "match": "registry.npmjs.org", "type": "registry" },
+    { "match": "npmjs.com", "type": "registry" },
+    { "match": "pypi.org", "type": "registry" },
+    { "match": "hub.docker.com", "type": "registry" },
+    { "match": "crates.io", "type": "registry" },
+    { "match": "search.maven.org", "type": "registry" },
+
+    { "match": "owasp.org", "type": "security-authority" },
+    { "match": "cwe.mitre.org", "type": "security-authority" },
+    { "match": "nvd.nist.gov", "type": "security-authority" },
+    { "match": "nist.gov", "type": "security-authority" },
+
+    { "match": "stackoverflow.com", "type": "community" },
+    { "match": "stackexchange.com", "type": "community" },
+    { "match": "serverfault.com", "type": "community" },
+    { "match": "dev.to", "type": "community" },
+    { "match": "medium.com", "type": "community" },
+    { "match": "reddit.com", "type": "community" },
+    { "match": "news.ycombinator.com", "type": "community" }
+  ],
+  "communityPatterns": ["blog.", "blogspot.", "hashnode.", "substack."]
+}

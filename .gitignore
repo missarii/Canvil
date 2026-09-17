@@ -1,0 +1,16 @@
+node_modules/
+dist/
+coverage/
+*.log
+
+# Canvil runtime artefacts
+.canvil/
+workspace/
+!workspace/.gitkeep
+
+# Local secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key

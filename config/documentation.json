@@ -1,0 +1,178 @@
+{
+  "$comment": "Documentation registry. Canvil resolves technologies detected in a project to authoritative documentation roots, then searches only the relevant sections instead of embedding the whole internet.",
+  "typescript": {
+    "name": "TypeScript",
+    "documentation": "https://www.typescriptlang.org/docs/",
+    "aliases": ["ts", "tsx"]
+  },
+  "javascript": {
+    "name": "JavaScript",
+    "documentation": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    "aliases": ["js", "node"]
+  },
+  "node": {
+    "name": "Node.js",
+    "documentation": "https://nodejs.org/docs/latest/api/",
+    "aliases": ["nodejs", "node.js"]
+  },
+  "react": {
+    "name": "React",
+    "documentation": "https://react.dev/",
+    "aliases": ["reactjs"]
+  },
+  "nextjs": {
+    "name": "Next.js",
+    "documentation": "https://nextjs.org/docs",
+    "aliases": ["next", "next.js"]
+  },
+  "nestjs": {
+    "name": "NestJS",
+    "documentation": "https://docs.nestjs.com/",
+    "aliases": ["nest", "@nestjs/core"]
+  },
+  "express": {
+    "name": "Express",
+    "documentation": "https://expressjs.com/",
+    "aliases": ["expressjs"]
+  },
+  "fastify": {
+    "name": "Fastify",
+    "documentation": "https://fastify.dev/docs/latest/",
+    "aliases": []
+  },
+  "vue": {
+    "name": "Vue",
+    "documentation": "https://vuejs.org/guide/introduction.html",
+    "aliases": ["vuejs"]
+  },
+  "svelte": {
+    "name": "Svelte",
+    "documentation": "https://svelte.dev/docs",
+    "aliases": ["sveltekit"]
+  },
+  "angular": {
+    "name": "Angular",
+    "documentation": "https://angular.dev/",
+    "aliases": ["@angular/core"]
+  },
+  "vite": {
+    "name": "Vite",
+    "documentation": "https://vite.dev/guide/",
+    "aliases": []
+  },
+  "tailwindcss": {
+    "name": "Tailwind CSS",
+    "documentation": "https://tailwindcss.com/docs",
+    "aliases": ["tailwind"]
+  },
+  "zod": {
+    "name": "Zod",
+    "documentation": "https://zod.dev/",
+    "aliases": []
+  },
+  "prisma": {
+    "name": "Prisma",
+    "documentation": "https://www.prisma.io/docs",
+    "aliases": ["@prisma/client"]
+  },
+  "drizzle": {
+    "name": "Drizzle ORM",
+    "documentation": "https://orm.drizzle.team/docs/overview",
+    "aliases": ["drizzle-orm"]
+  },
+  "typeorm": {
+    "name": "TypeORM",
+    "documentation": "https://typeorm.io/",
+    "aliases": []
+  },
+  "postgresql": {
+    "name": "PostgreSQL",
+    "documentation": "https://www.postgresql.org/docs/",
+    "aliases": ["postgres", "pg"]
+  },
+  "mysql": {
+    "name": "MySQL",
+    "documentation": "https://dev.mysql.com/doc/",
+    "aliases": []
+  },
+  "mongodb": {
+    "name": "MongoDB",
+    "documentation": "https://www.mongodb.com/docs/",
+    "aliases": ["mongoose", "mongo"]
+  },
+  "redis": {
+    "name": "Redis",
+    "documentation": "https://redis.io/docs/latest/",
+    "aliases": ["ioredis"]
+  },
+  "docker": {
+    "name": "Docker",
+    "documentation": "https://docs.docker.com/",
+    "aliases": ["containers"]
+  },
+  "kubernetes": {
+    "name": "Kubernetes",
+    "documentation": "https://kubernetes.io/docs/home/",
+    "aliases": ["k8s"]
+  },
+  "aws": {
+    "name": "Amazon Web Services",
+    "documentation": "https://docs.aws.amazon.com/",
+    "aliases": ["amazon-web-services", "s3", "lambda"]
+  },
+  "vitest": {
+    "name": "Vitest",
+    "documentation": "https://vitest.dev/",
+    "aliases": []
+  },
+  "jest": {
+    "name": "Jest",
+    "documentation": "https://jestjs.io/docs/getting-started",
+    "aliases": []
+  },
+  "playwright": {
+    "name": "Playwright",
+    "documentation": "https://playwright.dev/docs/intro",
+    "aliases": ["@playwright/test"]
+  },
+  "python": {
+    "name": "Python",
+    "documentation": "https://docs.python.org/3/",
+    "aliases": ["py"]
+  },
+  "django": {
+    "name": "Django",
+    "documentation": "https://docs.djangoproject.com/en/stable/",
+    "aliases": []
+  },
+  "fastapi": {
+    "name": "FastAPI",
+    "documentation": "https://fastapi.tiangolo.com/",
+    "aliases": []
+  },
+  "flask": {
+    "name": "Flask",
+    "documentation": "https://flask.palletsprojects.com/",
+    "aliases": []
+  },
+  "go": {
+    "name": "Go",
+    "documentation": "https://go.dev/doc/",
+    "aliases": ["golang"]
+  },
+  "rust": {
+    "name": "Rust",
+    "documentation": "https://doc.rust-lang.org/book/",
+    "aliases": ["cargo"]
+  },
+  "java": {
+    "name": "Java",
+    "documentation": "https://docs.oracle.com/en/java/",
+    "aliases": ["maven", "gradle"]
+  },
+  "dotnet": {
+    "name": ".NET",
+    "documentation": "https://learn.microsoft.com/en-us/dotnet/",
+    "aliases": ["csharp", "c#"]
+  }
+}

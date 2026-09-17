@@ -1,0 +1,98 @@
+{
+  "$comment": "Canvil safety policy. The command allowlist is deliberately opt-in: a command must match an allowlist pattern before it can run inside the sandbox, and blocked patterns always win.",
+  "sandbox": {
+    "mode": "docker",
+    "image": "node:22-bookworm-slim",
+    "network": false,
+    "memory": "2g",
+    "cpus": "2",
+    "timeoutMs": 300000,
+    "pidsLimit": 512,
+    "user": "node",
+    "readOnlyRepo": false,
+    "extraMounts": []
+  },
+  "commands": {
+    "allow": [
+      "^npm (ci|install|test|run [a-zA-Z0-9:_-]+|ls|outdated)$",
+      "^pnpm (install|test|run [a-zA-Z0-9:_-]+)$",
+      "^yarn (install|test|run [a-zA-Z0-9:_-]+)$",
+      "^npx (vitest|jest|tsc|eslint|prettier)( [\\w./=:@-]*)*$",
+      "^node --version$",
+      "^npm --version$",
+      "^node (--test|--check) [\\w./-]+$",
+      "^tsc( -p [\\w./-]+)?( --noEmit)?$",
+      "^pytest( [\\w./=-]+)*$",
+      "^python3? -m (pytest|unittest|compileall)( [\\w./=-]+)*$",
+      "^go (build|test|vet)( [\\w./=-]+)*$",
+      "^cargo (build|test|clippy|fmt)( [\\w=-]+)*$",
+      "^mvn( [\\w.:=-]+)*$",
+      "^gradle(w)? (build|test)( [\\w.:=-]+)*$",
+      "^dotnet (build|test)( [\\w./=-]+)*$",
+      "^ls( -[a-zA-Z]+)*([\\w./*-]+)?$",
+      "^cat [\\w./-]+$",
+      "^find [\\w./*-]+( -[a-zA-Z]+ [\\w.*-]+)*$",
+      "^grep( -[a-zA-Z]+)* [\\w\"'|^$.*+?()\\[\\]{}\\\\/-]+( [\\w./*-]+)+$",
+      "^git (status|diff|log|show|branch|rev-parse)( [\\w./=:-]+)*$",
+      "^echo( [\\w.-]+)*$",
+      "^pwd$"
+    ],
+    "block": [
+      "rm\\s+-rf\\s+/",
+      "\\bsudo\\b",
+      "\\bcurl\\b[^|;]*\\|\\s*(ba)?sh",
+      "\\bwget\\b[^|;]*\\|\\s*(ba)?sh",
+      "\\bchmod\\s+777\\b",
+      ":\\(\\)\\s*\\{",
+      "\\bmkfs\\b",
+      "\\bdd\\s+if=",
+      "\\bnc\\s+-[a-z]*e",
+      "/dev/tcp/",
+      "\\bnpm\\s+publish\\b",
+      "\\bdocker\\s+(run|exec)\\b",
+      "\\bgit\\s+push\\b",
+      "\\bgit\\s+reset\\s+--hard\\b",
+      "\\bgit\\s+clean\\s+-[a-z]*f",
+      "\\bhistory\\s+-c\\b",
+      "\\bcrontab\\b",
+      "\\bsystemctl\\b",
+      "\\bapt(-get)?\\s+install\\b",
+      "\\bshutdown\\b|\\breboot\\b",
+      "\\bnpm\\s+config\\s+set\\b",
+      "\\bcurl\\b(?![\\s\\S]*https?://)",
+      "\\beval\\b"
+    ]
+  },
+  "filesystem": {
+    "writableGlobs": ["**"],
+    "protectedPaths": [
+      ".git/config",
+      ".git/hooks/**",
+      ".env",
+      ".env.*",
+      ".ssh/**",
+      ".aws/**",
+      ".npmrc",
+      "**/id_rsa",
+      "**/id_ed25519",
+      "**/*.pem",
+      "**/*.key"
+    ],
+    "maxFileSizeBytes": 400000,
+    "maxFilesWrittenWithoutApproval": 25
+  },
+  "agent": {
+    "maxIterations": 8,
+    "maxResearchQueries": 6,
+    "maxContextFiles": 24,
+    "requireApprovalForWrite": true,
+    "requireApprovalForCommand": false,
+    "recursionLimit": 60
+  },
+  "limits": {
+    "maxFetchBytes": 1500000,
+    "maxWebResults": 8,
+    "requestTimeoutMs": 20000,
+    "userAgent": "Canvil/0.1 (+https://github.com/canvil)"
+  }
+}
